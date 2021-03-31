@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+    <!-- THE HEAD TAG PARTIAL -->
+    <%- include("partials/head") %>
+
+    <body>
+        <!-- THE HEADER TAG PARTIAL -->
+        <%- include("partials/header") %>
+        <main>
+
+            <!-- //////////////////////////////////////////////// -->
+<div class="container" style="display: flex; flex-wrap: wrap; justify-content: space-around;">
+    
+    <% for(singlePokemon of allPokemon) { %>
+
+      <div class="card" style="margin: 30px;">
+              <div class="media-content">
+                <p class="title is-4"><%= name.name %></p>
+                <p class="subtitle is-6">🍭 Favorite Candy: <%= singlePokemon.candy %></p>
+                <img class="pokemonImage" src="<%= singlePokemon.img %>" alt="">
+              </div>
+        </div>
+    <% } %>
+
+</div>
+<!-- //////////////////////////////////////////////// -->
+
+        </main>
+        <!-- THE HEAD TAG PARTIAL -->
+        <%- include("partials/footer") %>
+    </body>
+</html>
