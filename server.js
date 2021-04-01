@@ -14,6 +14,8 @@ const cors = require("cors");
 const PORT = process.env.PORT || "2021";
 const SECRET = process.env.SECRET || "secret"
 const HomeRouter = require("./routes/home.js");
+const PokemonRouter = require("./routes/home.js")
+
 // Sessions Middleware
 const session = require("express-session"); // create session cookies
 const connect = require("connect-mongodb-session")(session) // store cookies in mongo
@@ -58,6 +60,8 @@ app.use(express.urlencoded({ extended: false })); //parse bodies from form submi
 
 //HomeRouter
 app.use("/", HomeRouter);
+
+app.use("/", PokemonRouter);
 
 /////////////////////////////////////
 // App Listener

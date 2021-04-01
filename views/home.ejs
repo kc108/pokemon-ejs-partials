@@ -12,16 +12,17 @@
             <!-- //////////////////////////////////////////////// -->
 <div class="container" style="display: flex; flex-wrap: wrap; justify-content: space-around;">
     
-    <% for(singlePokemon of allPokemon) { %>
+    <% allPokemon.forEach((singlePokemon, index) => { %>
 
       <div class="card" style="margin: 30px;">
               <div class="media-content">
                 <p class="title is-4"><%= singlePokemon.name %></p>
                 <p class="subtitle is-6">🍭 Favorite Candy: <%= singlePokemon.candy %></p>
+                <a href="/pokemon/<%= index %>">More Details</a>
                 <img class="pokemonImage" src="<%= singlePokemon.img %>" alt="">
               </div>
         </div>
-    <% } %>
+    <% }) %>
 
 </div>
 <!-- //////////////////////////////////////////////// -->

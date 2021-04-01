@@ -1,3 +1,6 @@
+const pokemonURL = "https://dummydata.netlify.app/pokedex.json"
+const axios = require("axios")
+
 ///////////////////////////
 // Import Models
 ///////////////////////////
@@ -5,21 +8,39 @@
 ///////////////////////////
 // Controller Functions
 ///////////////////////////
+const index = async (req, res) => {
 
+    // make api call, fetch the data with axios
+    const response = await axios(pokemonURL)
+    // for learning: this shows where the '.data' comes from
+    console.log(response)
+    // get specifically the hero data from the results
+    const allPokemon = response.data.pokemon
+    // for learning: this shows what is stored 
+    console.log(allPokemon)
+
+    // send hero data to our rendered view
+    res.render("home", {
+        allPokemon
+    })
+};
+
+// controller
 // show
 const show = async(req, res) => {
-    const individual = await singlePokemon.findById(req.params.id);
-    res.render("views/pokemon/individual", {
-        singlePokemon
-    });
+    const response = await axios(pokemonURL)
+    const allPokemon = response.data.pokemon
+    const singlePokemon = allPokemon[req.params.id]
+    res.render("show", {singlePokemon})
+};
 
-    
+
     // res.json({ method: "Ian" })
     // const product = await Product.findById(req.params.id);
     // res.render("products/show", {
     //     product
     // }); 
-};
+
 
 // // New Product Page
 // const newProduct = async(req, res) => {
@@ -94,7 +115,7 @@ const show = async(req, res) => {
 // Export Controller
 //////////////////////////////
 module.exports = {
-    //index, 
+    index, 
     show,
     // new: newProduct,
     // create, 
