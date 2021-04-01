@@ -1,15 +1,25 @@
 ///////////////////////////
+// Import Models
+///////////////////////////
+
+///////////////////////////
 // Controller Functions
 ///////////////////////////
 
 // show
-const show = (req, res) => {
-    res.json({ method: "Ian" })
+const show = async(req, res) => {
+    const individual = await singlePokemon.findById(req.params.id);
+    res.render("views/pokemon/individual", {
+        singlePokemon
+    });
+
+    
+    // res.json({ method: "Ian" })
     // const product = await Product.findById(req.params.id);
     // res.render("products/show", {
     //     product
     // }); 
-}
+};
 
 // // New Product Page
 // const newProduct = async(req, res) => {

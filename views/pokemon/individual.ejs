@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+    <!-- THE HEAD TAG PARTIAL -->
+    <%- include("partials/head") %>
+
+    <body>
+        <!-- THE HEADER TAG PARTIAL -->
+        <%- include("partials/header") %>
+        <main>
+
+            <!-- //////////////////////////////////////////////// -->
+    
+          <div class="individualcard" style="margin: 30px;">
+              <div class="media-content">
+                <p class="title is-4"><%= singlePokemon.name %></p>
+                <p class="subtitle is-6">🍭 Favorite Candy: <%= singlePokemon.candy %></p>
+                <p class="subtitle is-6">Candy Count: <%= singlePokemon.candy_count %></p>
+                <p class="subtitle is-6">Weaknesses: <%= singlePokemon.weaknesses %></p>
+                <img class="pokemonImage" src="<%= singlePokemon.img %>" alt="">
+              </div>
+        </div>
+    <% } %>
+
+</div>
+<!-- //////////////////////////////////////////////// -->
+
+        </main>
+        <!-- THE HEAD TAG PARTIAL -->
+        <%- include("partials/footer") %>
+    </body>
+</html>
