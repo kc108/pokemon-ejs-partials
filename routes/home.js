@@ -3,10 +3,12 @@
 ////////////////////////////////
 const router = require("express").Router()
 const axios = require("axios")
+const PokemonRouter = require("./pokemon")
 
 ///////////////////////////////
 // Router Specific Middleware
 ////////////////////////////////
+router.get("/pokemon", PokemonRouter)
 
 ///////////////////////////////
 // Router Routes
